@@ -42,8 +42,7 @@
 
   /* ---------- 3. Message de bienvenue ---------- */
   const heure = new Date().getHours();
-  const salutation = heure >= 18 || heure < 5 ? 'Bonsoir' : 'Bonjour';
-  $('greeting').textContent = salutation + ' ' + userName + ' 👋';
+  $('greeting').textContent = 'Coucou ' + userName + ' 👋🏽';
 
   /* ---------- 4. Statistiques ---------- */
   $('stat-quiz').textContent = quizHistory.length;
