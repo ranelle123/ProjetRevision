@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BioRévise · Fiches</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      var t = JSON.parse(localStorage.getItem('bts.theme') || 'null');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="fiches">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>BioRévise</a>
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="fiches.html" aria-current="page">Fiches</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="flashcards.html">Flashcards</a></li>
+          <li><a href="progression.html">Progression</a></li>
+          <li><a href="favoris.html">Favoris</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Passer en mode sombre"></button>
+      <button id="menu-toggle" class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-header">
+        <h1>Fiches de révision</h1>
+        <p>Retrouve ici toutes tes fiches, classées par matière, avec recherche et filtres.</p>
+      </div>
+      <section class="panel study-tool" aria-labelledby="summary-title">
+        <h2 id="summary-title">Assistant de synthèse hors ligne</h2>
+        <p>Colle un cours ou un sujet : l’outil extrait les phrases les plus informatives directement dans ton navigateur.</p>
+        <label for="summary-input">Cours ou sujet à résumer</label>
+        <textarea id="summary-input" rows="6" placeholder="Colle ici tes notes de cours…"></textarea>
+        <div class="toolbar">
+          <button id="summarize-button" class="btn btn-primary" type="button">Créer une synthèse</button>
+          <span id="summary-status" class="section-note" aria-live="polite"></span>
+        </div>
+        <div id="summary-output" class="summary-output" aria-live="polite"></div>
+        <p class="section-note">Ce mode local n’utilise pas de modèle génératif : vérifie les synthèses avec le cours et les référentiels officiels.</p>
+      </section>
+      <section class="section" aria-label="Catalogue des fiches">
+        <div class="toolbar">
+          <label class="sr-only" for="fiche-search">Rechercher une notion</label>
+          <input id="fiche-search" type="search" placeholder="Rechercher une notion…">
+          <label class="sr-only" for="matiere-filter">Filtrer par matière</label>
+          <select id="matiere-filter"><option value="">Toutes les matières</option></select>
+          <span id="fiche-count" class="section-note" aria-live="polite"></span>
+        </div>
+        <div id="fiche-list" class="study-grid"></div>
+        <article id="fiche-detail" class="panel fiche-detail" hidden></article>
+      </section>
+      <aside class="curriculum-note">
+        <strong>BTS 2027 : révise ici, vérifie l’officiel !</strong> Compare toujours ces fiches avec le programme demandé par ton établissement.
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Projet personnel d’apprentissage. Aucune donnée médicale personnelle n’est enregistrée.</p>
+      <p><button id="reset-data" class="btn-link" type="button">Réinitialiser mes données</button></p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/study.js"></script>
+</body>
+</html>

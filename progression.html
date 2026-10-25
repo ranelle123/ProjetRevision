@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BioRévise · Progression</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      var t = JSON.parse(localStorage.getItem('bts.theme') || 'null');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="progression">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>BioRévise</a>
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="fiches.html">Fiches</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="flashcards.html">Flashcards</a></li>
+          <li><a href="progression.html" aria-current="page">Progression</a></li>
+          <li><a href="favoris.html">Favoris</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Passer en mode sombre"></button>
+      <button id="menu-toggle" class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-header">
+        <h1>Progression</h1>
+        <p>Suis tes scores, tes matières les mieux maîtrisées et celles à retravailler.</p>
+      </div>
+      <section class="stats" aria-label="Statistiques de révision">
+        <article class="stat-card"><div><span class="stat-value" id="progress-quizzes">0</span><span class="stat-label">Quiz terminés</span></div></article>
+        <article class="stat-card"><div><span class="stat-value" id="progress-average">–</span><span class="stat-label">Score moyen</span></div></article>
+        <article class="stat-card"><div><span class="stat-value" id="progress-sheets">0</span><span class="stat-label">Fiches consultées</span></div></article>
+        <article class="stat-card"><div><span class="stat-value" id="progress-mastered">0</span><span class="stat-label">Cartes maîtrisées</span></div></article>
+      </section>
+      <section class="section panel">
+        <h2>Résultats par matière</h2>
+        <div id="progress-subjects" class="progress-list"></div>
+      </section>
+      <section class="section panel">
+        <h2>Derniers quiz</h2>
+        <div id="progress-history"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Projet personnel d’apprentissage. Aucune donnée médicale personnelle n’est enregistrée.</p>
+      <p><button id="reset-data" class="btn-link" type="button">Réinitialiser mes données</button></p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/study.js"></script>
+</body>
+</html>

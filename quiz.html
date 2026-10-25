@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BioRévise · Quiz</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      var t = JSON.parse(localStorage.getItem('bts.theme') || 'null');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="quiz">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>BioRévise</a>
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="fiches.html">Fiches</a></li>
+          <li><a href="quiz.html" aria-current="page">Quiz</a></li>
+          <li><a href="flashcards.html">Flashcards</a></li>
+          <li><a href="progression.html">Progression</a></li>
+          <li><a href="favoris.html">Favoris</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Passer en mode sombre"></button>
+      <button id="menu-toggle" class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-header">
+        <h1>Quiz</h1>
+        <p>Teste tes connaissances par matière et par niveau, avec correction et explication à chaque question.</p>
+      </div>
+      <section class="panel quiz-panel">
+        <div class="toolbar">
+          <label for="quiz-filter">Matière</label>
+          <select id="quiz-filter"><option value="">Toutes les matières</option></select>
+          <button id="quiz-start" class="btn btn-primary" type="button">Démarrer un quiz</button>
+        </div>
+        <div id="quiz-area" aria-live="polite">
+          <div class="empty-state"><p>Choisis une matière ou lance un quiz complet pour commencer.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Projet personnel d’apprentissage. Aucune donnée médicale personnelle n’est enregistrée.</p>
+      <p><button id="reset-data" class="btn-link" type="button">Réinitialiser mes données</button></p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/study.js"></script>
+</body>
+</html>

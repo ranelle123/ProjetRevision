@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BioRévise · Accueil</title>
+  <meta name="description" content="Site de révision pour le BTS Analyses de biologie médicale : fiches, quiz et flashcards.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E">
+
+  <!-- Appliqué AVANT l'affichage de la page pour éviter un flash blanc en mode sombre -->
+  <script>
+    try {
+      var t = JSON.parse(localStorage.getItem('bts.theme') || 'null');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) { /* stockage indisponible : on garde le mode clair */ }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="accueil">
+
+  <!-- Bibliothèque d'icônes : définies une seule fois, réutilisées avec <use href="#nom"> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <!-- Matières -->
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.2 6 10.5A6 6 0 0 1 6 13.5C6 9.2 12 3 12 3z"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6.2L5.2 18.4A2 2 0 0 0 7 21h10a2 2 0 0 0 1.8-2.6L14 9.2V3"/><path d="M7.5 15h9"/></symbol>
+    <symbol id="i-dish" viewBox="0 0 24 24"><ellipse cx="12" cy="9" rx="8" ry="4"/><path d="M4 9v6c0 2.2 3.6 4 8 4s8-1.8 8-4V9"/><circle cx="10" cy="9" r=".6"/><circle cx="14" cy="10" r=".6"/></symbol>
+    <symbol id="i-bacteria" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4" transform="rotate(-30 12 12)"/><circle cx="10" cy="13" r=".7"/><circle cx="14" cy="11" r=".7"/></symbol>
+    <symbol id="i-virus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-mushroom" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0z"/><path d="M10 12v6a2 2 0 0 0 4 0v-6"/></symbol>
+    <symbol id="i-tube" viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v14a2 2 0 0 0 4 0V3"/><path d="M10 11h4"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 14l2 2 4-4"/></symbol>
+    <symbol id="i-bars" viewBox="0 0 24 24"><path d="M5 20V11M12 20V4M19 20v-6"/></symbol>
+    <!-- Statistiques -->
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><rect x="3" y="7" width="14" height="12" rx="2"/><path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ===== EN-TÊTE ET NAVIGATION ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        BM.Révision.BTS
+      </a>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
+          <li><a href="fiches.html">Fiches</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="flashcards.html">Flashcards</a></li>
+          <li><a href="progression.html">Progression</a></li>
+          <li><a href="favoris.html">Favoris</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Passer en mode sombre"></button>
+      <button id="menu-toggle" class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+
+      <!-- ===== BIENVENUE ===== -->
+      <section class="hero reveal" aria-labelledby="greeting">
+        <p class="hero-eyebrow">Objectif BTS Biologie médicale 2027</p>
+        <h1 id="greeting">Bonjour Iverson </h1>
+        <p class="hero-text">Un parcours prêt à réviser : notions déjà intégrées, fiches, quiz corrigés et flashcards. Avance un peu chaque jour, sans devoir préparer tes propres contenus.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="quiz.html">Lancer un quiz</a>
+          <a class="btn btn-ghost" href="fiches.html">Ouvrir les fiches</a>
+        </div>
+        <!-- Vrai formulaire : il envoie vers fiches.html?q=ce-que-tu-tapes -->
+        <form class="search" role="search" action="fiches.html" method="get">
+          <label class="sr-only" for="q">Rechercher une fiche</label>
+          <input id="q" name="q" type="search" placeholder="Rechercher une fiche (ex. hémogramme)…">
+          <button class="btn btn-light" type="submit">Rechercher</button>
+        </form>
+      </section>
+
+      <!-- ===== RÉSUMÉ DE LA PROGRESSION ===== -->
+      <section class="section reveal" aria-labelledby="stats-title">
+        <div class="section-head">
+          <h2 id="stats-title">Ma progression</h2>
+          <p class="section-note">Calculé à partir de tes résultats enregistrés.</p>
+        </div>
+        <div class="stats">
+          <article class="stat-card">
+            <span class="stat-icon is-green"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>
+            <div><span class="stat-value" id="stat-quiz">0</span><span class="stat-label">Quiz terminés</span></div>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg></span>
+            <div><span class="stat-value" id="stat-score">–</span><span class="stat-label">Score moyen</span></div>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg></span>
+            <div><span class="stat-value" id="stat-fiches">0</span><span class="stat-label">Fiches consultées</span></div>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon is-green"><svg class="icon" aria-hidden="true"><use href="#i-cards"></use></svg></span>
+            <div><span class="stat-value" id="stat-cards">0</span><span class="stat-label">Flashcards à revoir</span></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== REPRENDRE + RÉVISER AUJOURD'HUI ===== -->
+      <div class="section two-col reveal">
+        <section class="panel" aria-labelledby="resume-title">
+          <h2 id="resume-title">Reprendre mes révisions</h2>
+          <div id="resume-content">
+            <div class="empty-state"><p>Rien à reprendre pour l’instant. Ouvre une fiche ou lance un quiz : il apparaîtra ici.</p></div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="today-title">
+          <h2 id="today-title">Réviser aujourd’hui</h2>
+          <ul class="suggestions" id="today-list">
+            <li><a href="fiches.html">Commence par une matière : ouvre une première fiche</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ===== MATIÈRES (cartes générées depuis js/data.js) ===== -->
+      <section class="section reveal" aria-labelledby="subjects-title">
+        <div class="section-head">
+          <h2 id="subjects-title">Mes matières</h2>
+          <p class="section-note">14 domaines et un catalogue de fiches, quiz et cartes intégrés.</p>
+        </div>
+        <div class="subjects" id="subjects-grid"></div>
+        <noscript><p class="section-note">JavaScript est nécessaire pour afficher les matières.</p></noscript>
+      </section>
+
+      <!-- ===== CITATION ===== -->
+      <section class="section reveal" aria-label="Citation du jour">
+        <figure class="quote" style="margin:0">
+          <blockquote style="margin:0"><p id="quote-text">C’est en forgeant qu’on devient forgeron.</p></blockquote>
+          <figcaption id="quote-author" style="color:var(--muted);font-size:.9rem">Proverbe</figcaption>
+        </figure>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>fait par ta copine pour t'aider à réviser pour l'objectif bts 2027!.</p>
+      <p><button id="reset-data" class="btn-link" type="button">Réinitialiser mes données</button></p>
+    </div>
+  </footer>
+
+  <!-- Ordre important : data.js (données) → app.js (outils communs) → dashboard.js (cette page) -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
